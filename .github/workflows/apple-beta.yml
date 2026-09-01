@@ -1,0 +1,96 @@
+name: Build Apple beta
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*-beta*'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.6'
+          cache: true
+      - name: Resolve dependencies
+        run: flutter pub get
+      - name: Run tests
+        run: flutter test
+
+  macos-beta:
+    needs: test
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.6'
+          cache: true
+      - name: Build macOS beta
+        run: |
+          flutter pub get
+          flutter build macos --release
+      - name: Package macOS beta
+        shell: bash
+        run: |
+          set -euo pipefail
+          APP_PATH="$(find build/macos/Build/Products/Release -maxdepth 1 -name '*.app' -print -quit)"
+          test -n "$APP_PATH"
+          VERSION="$(awk '/^version:/ {print $2; exit}' pubspec.yaml)"
+          PACKAGE_VERSION="${VERSION/+/-build}"
+          mkdir -p dist
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "dist/Pianora-Piano-tranier-macOS-${PACKAGE_VERSION}.zip"
+          hdiutil create -volname "Pianora Piano tranier Beta" -srcfolder "$APP_PATH" -ov -format UDZO "dist/Pianora-Piano-tranier-macOS-${PACKAGE_VERSION}.dmg"
+      - name: Upload macOS beta
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pianora-Piano-tranier-macOS-beta
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 30
+
+  ios-ipados-beta:
+    needs: test
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.6'
+          cache: true
+      - name: Build universal iPhone and iPad app
+        run: |
+          flutter pub get
+          flutter build ios --release --no-codesign
+      - name: Package unsigned IPA for signing validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="$(awk '/^version:/ {print $2; exit}' pubspec.yaml)"
+          PACKAGE_VERSION="${VERSION/+/-build}"
+          mkdir -p dist/Payload
+          cp -R build/ios/iphoneos/Runner.app dist/Payload/
+          (cd dist && zip -qry "Pianora-Piano-tranier-iPhone-iPad-${PACKAGE_VERSION}-unsigned.ipa" Payload)
+          rm -rf dist/Payload
+      - name: Upload iPhone and iPad beta candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pianora-Piano-tranier-iPhone-iPad-beta-unsigned
+          path: dist/*.ipa
+          if-no-files-found: error
+          retention-days: 30
