@@ -47,7 +47,28 @@ migrate_working_dir/
 *.p8
 *.pfx
 *.der
-/android/key.properties
+**/key.properties
+**/local.properties
+
+# Cloud/service credentials and app connection configs
+**/credentials.json
+**/application_default_credentials.json
+**/service-account.json
+**/service-account-*.json
+**/service_account*.json
+**/*-service-account.json
+**/secrets.json
+**/secrets.yaml
+**/secrets.yml
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Personal key stores and SSH private keys
+**/id_rsa
+**/id_rsa_*
+**/id_ed25519
+**/id_ed25519_*
+*.kdbx
 
 # Symbolication related
 app.*.symbols
