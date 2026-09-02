@@ -21,7 +21,7 @@ class SettingsPage extends StatelessWidget {
     required this.devicesSection,
   });
 
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
   final PianoController controller;
   final Widget devicesSection;
 
@@ -102,7 +102,7 @@ class SettingsPage extends StatelessWidget {
               Text('SETTINGS', style: _eyebrow(context)),
               const SizedBox(height: 8),
               Text(
-                'Make Pianora yours',
+                'Make Piano-ish yours',
                 style: Theme.of(context).textTheme.displaySmall,
               ),
               const SizedBox(height: 8),
@@ -260,7 +260,7 @@ class SettingsPage extends StatelessWidget {
                     Wrap(
                       spacing: 12,
                       runSpacing: 12,
-                      children: PianoraAppState.accentPresets
+                      children: PianoIshAppState.accentPresets
                           .map(
                             (color) => _AccentSwatch(
                               color: color,
@@ -360,7 +360,7 @@ class SettingsPage extends StatelessWidget {
                 icon: Icons.policy_outlined,
                 title: 'Legal & licenses',
                 subtitle:
-                    'Copyright notices for the open-source software used by Pianora',
+                    'Copyright notices for the open-source software used by Piano-ish',
                 child: Column(
                   children: [
                     ListTile(
@@ -373,7 +373,7 @@ class SettingsPage extends StatelessWidget {
                       trailing: const Icon(Icons.chevron_right_rounded),
                       onTap: () => showLicensePage(
                         context: context,
-                        applicationName: 'Pianora Piano tranier',
+                        applicationName: 'Piano-ish',
                         applicationVersion: appState.appVersion,
                         applicationIcon: const Icon(
                           Icons.piano_rounded,
@@ -405,7 +405,7 @@ class SettingsPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Pianora Piano tranier ${appState.appVersion}',
+                      'Piano-ish ${appState.appVersion}',
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                     const SizedBox(height: 6),
@@ -445,7 +445,7 @@ class ProfileAvatar extends StatelessWidget {
     this.overridePath,
   });
 
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
   final double radius;
   final String? overridePath;
 
@@ -482,7 +482,7 @@ class PlannerPage extends StatefulWidget {
     required this.openPractice,
   });
 
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
   final PianoController controller;
   final VoidCallback openPractice;
 
@@ -532,7 +532,7 @@ class _PlannerPageState extends State<PlannerPage> {
   Future<void> _exportPath(LearningPath path) async {
     await FilePicker.saveFile(
       dialogTitle: 'Export learning path',
-      fileName: '${_safeName(path.title)}.pianora.json',
+      fileName: '${_safeName(path.title)}.piano-ish.json',
       type: FileType.custom,
       allowedExtensions: const ['json'],
       mimeType: 'application/json',
@@ -1162,7 +1162,7 @@ class _PlannerEmpty extends StatelessWidget {
   final VoidCallback onCreate, onImport;
   @override
   Widget build(BuildContext context) {
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(54),
@@ -1221,7 +1221,7 @@ class _SettingsCard extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     final compact = MediaQuery.sizeOf(context).width < 700;
     return Container(
       padding: EdgeInsets.all(compact ? 18 : 26),

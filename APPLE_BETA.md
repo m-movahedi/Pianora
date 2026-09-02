@@ -1,7 +1,7 @@
 # Apple beta builds
 
-Pianora uses one universal iOS application target for both iPhone and iPad.
-The bundle identifier is `com.mmovahedi.pianora`, and the current beta version
+Piano-ish uses one universal iOS application target for both iPhone and iPad.
+The bundle identifier is `com.mmovahedi.pianoish`, and the current beta version
 comes from `pubspec.yaml`.
 
 ## Build artifacts with GitHub Actions
@@ -9,8 +9,8 @@ comes from `pubspec.yaml`.
 1. Push the repository to GitHub.
 2. Open **Actions > Build Apple beta > Run workflow**.
 3. After the run completes, download:
-   - `Pianora-Piano-tranier-macOS-beta`
-   - `Pianora-Piano-tranier-iPhone-iPad-beta-unsigned`
+   - `Piano-ish-macOS-beta`
+   - `Piano-ish-iPhone-iPad-beta-unsigned`
 
 The macOS artifact contains a ZIP and DMG. It is unsigned, so macOS testers may
 need to approve it in **System Settings > Privacy & Security**. Public macOS
@@ -22,7 +22,7 @@ unsigned IPA on physical devices. Use the signing steps below for a real beta.
 ## Create an installable iPhone and iPad beta
 
 1. Enroll in the Apple Developer Program.
-2. Register the explicit App ID `com.mmovahedi.pianora` in Certificates,
+2. Register the explicit App ID `com.mmovahedi.pianoish` in Certificates,
    Identifiers & Profiles.
 3. Create the matching iOS app in App Store Connect.
 4. On a Mac, open `ios/Runner.xcworkspace` in Xcode.

@@ -445,7 +445,7 @@ class PianoController extends ChangeNotifier {
   }
 
   Future<File?> _rememberedDeviceFile() async {
-    final directory = await pianoraSupportDirectory();
+    final directory = await pianoIshSupportDirectory();
     if (directory == null) return null;
     return File('${directory.path}${Platform.pathSeparator}midi_device.txt');
   }
@@ -531,7 +531,7 @@ class PianoController extends ChangeNotifier {
   }
 
   Future<File?> _songLibraryFile() async {
-    final directory = await pianoraSupportDirectory();
+    final directory = await pianoIshSupportDirectory();
     if (directory == null) return null;
     return File(
       '${directory.path}${Platform.pathSeparator}songs${Platform.pathSeparator}library.json',

@@ -25,7 +25,7 @@
         tools:replace="android:required" />
 
     <application
-        android:label="Pianora Piano tranier"
+        android:label="Piano-ish"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

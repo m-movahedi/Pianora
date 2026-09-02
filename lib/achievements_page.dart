@@ -38,7 +38,7 @@ class _AchievementTrack {
 class AchievementsPage extends StatelessWidget {
   const AchievementsPage({super.key, required this.appState});
 
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
 
   List<_AchievementTrack> get _tracks => [
     _AchievementTrack(
@@ -190,7 +190,7 @@ class _AchievementHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     final copy = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -272,7 +272,7 @@ class _AchievementCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     final next = track.next;
     final previousTarget = track.earned == 0
         ? 0.0

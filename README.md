@@ -1,6 +1,6 @@
-# Pianora
+# Piano-ish
 
-Pianora Piano tranier is a free, open-source MIDI piano learning app built
+Piano-ish is a free, open-source MIDI piano learning app built
 with Flutter. It supports Windows, Android, macOS, iPhone, and iPad.
 
 ## Features
@@ -74,7 +74,7 @@ Imported MIDI files, profile information, learning paths, and practice history
 are stored locally in the application's private support directory.
 
 Optional metadata lookup sends the song title and composer to MusicBrainz.
-Cover images are loaded from the Cover Art Archive. Pianora does not include
+Cover images are loaded from the Cover Art Archive. Piano-ish does not include
 third-party songs or MIDI files.
 
 ## Project structure
@@ -87,7 +87,7 @@ third-party songs or MIDI files.
 
 ## License
 
-Pianora is available under the [MIT License](LICENSE). Third-party software,
+Piano-ish is available under the [MIT License](LICENSE). Third-party software,
 font, metadata, and artwork terms are listed in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and in the app under
 **Settings > Legal & licenses**.

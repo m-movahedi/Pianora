@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-/// A copyright-free Standard MIDI File generated specifically for Pianora's
+/// A copyright-free Standard MIDI File generated specifically for Piano-ish's
 /// tests. It contains 16 measures of quarter notes spanning both piano staves.
 Uint8List createSyntheticPianoMidi() {
   const ticksPerQuarter = 480;

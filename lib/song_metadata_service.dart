@@ -58,7 +58,7 @@ class SongMetadataService {
       uri,
       headers: const {
         'Accept': 'application/json',
-        'User-Agent': 'Pianora/1.1.0 (https://www.m-movahedi.com)',
+        'User-Agent': 'Piano-ish/1.1.0 (https://www.m-movahedi.com)',
       },
     );
     if (response.statusCode != 200) {

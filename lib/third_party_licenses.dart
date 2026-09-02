@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 /// Registers notices for native components embedded by flutter_soloud.
 /// Package-level licenses are registered automatically by Flutter.
-void registerPianoraThirdPartyLicenses() {
+void registerPianoIshThirdPartyLicenses() {
   LicenseRegistry.addLicense(() async* {
     yield const LicenseEntryWithLineBreaks(
       <String>['SoLoud audio engine'],

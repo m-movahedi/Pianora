@@ -19,7 +19,7 @@ winget install --id JRSoftware.InnoSetup --exact
 2. Run `.\tool\build_windows_installer.cmd`.
 3. Distribute the new setup executable.
 
-Users can run the new setup normally. The permanent `AppId` in `pianora.iss`
+Users can run the new setup normally. The permanent `AppId` in `piano-ish.iss`
 makes it update the existing installation in place. Do not change that ID in a
 future release. User profiles and progress are stored outside the installation
 directory and are preserved during upgrades and uninstall/reinstall cycles.

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pianora/app_state.dart';
-import 'package:pianora/design_system.dart';
+import 'package:piano_ish/app_state.dart';
+import 'package:piano_ish/design_system.dart';
 
 void main() {
   test('learning paths round-trip songs and rich lesson documents', () {
@@ -38,7 +38,7 @@ void main() {
   });
 
   test('where you left off chooses the newest unfinished path', () {
-    final state = PianoraAppState();
+    final state = PianoIshAppState();
     state.learningPaths.addAll([
       LearningPath(
         id: 'older',
@@ -75,7 +75,7 @@ void main() {
   });
 
   test('achievement statistics are derived from saved practice data', () {
-    final state = PianoraAppState();
+    final state = PianoIshAppState();
     state.dailyPracticeSeconds.addAll({
       '2026-08-18': 600,
       '2026-08-19': 900,
@@ -109,7 +109,7 @@ void main() {
 
   test('accent foregrounds meet WCAG AA contrast in both themes', () {
     for (final brightness in Brightness.values) {
-      for (final accent in PianoraAppState.accentPresets) {
+      for (final accent in PianoIshAppState.accentPresets) {
         final scheme = ColorScheme.fromSeed(
           seedColor: accent,
           brightness: brightness,

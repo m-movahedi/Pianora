@@ -18,24 +18,24 @@ import 'third_party_licenses.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   registerBundledFontLicenses();
-  registerPianoraThirdPartyLicenses();
-  runApp(const PianoraApp());
+  registerPianoIshThirdPartyLicenses();
+  runApp(const PianoIshApp());
 }
 
-class PianoraApp extends StatefulWidget {
-  const PianoraApp({super.key});
+class PianoIshApp extends StatefulWidget {
+  const PianoIshApp({super.key});
 
   @override
-  State<PianoraApp> createState() => _PianoraAppState();
+  State<PianoIshApp> createState() => _PianoIshAppState();
 }
 
-class _PianoraAppState extends State<PianoraApp> {
-  late final PianoraAppState appState;
+class _PianoIshAppState extends State<PianoIshApp> {
+  late final PianoIshAppState appState;
 
   @override
   void initState() {
     super.initState();
-    appState = PianoraAppState()..load();
+    appState = PianoIshAppState()..load();
   }
 
   @override
@@ -43,7 +43,7 @@ class _PianoraAppState extends State<PianoraApp> {
     listenable: appState,
     builder: (context, _) => MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Pianora Piano tranier',
+      title: 'Piano-ish',
       themeMode: appState.themeMode,
       theme: _buildTheme(
         appState.accentColor,
@@ -75,7 +75,7 @@ ThemeData _buildTheme(
   final dark = brightness == Brightness.dark;
   final skeuo = language == DesignLanguage.skeuomorphicInstrument;
   final swiss = language == DesignLanguage.minimalSwiss;
-  final visuals = PianoraVisuals(language: language, brightness: brightness);
+  final visuals = PianoIshVisuals(language: language, brightness: brightness);
   return ThemeData(
     useMaterial3: true,
     brightness: brightness,
@@ -257,7 +257,7 @@ ThemeData _buildTheme(
 
 class PianoHome extends StatefulWidget {
   const PianoHome({super.key, required this.appState, this.initialController});
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
   final PianoController? initialController;
   @override
   State<PianoHome> createState() => _PianoHomeState();
@@ -299,7 +299,7 @@ class _PianoHomeState extends State<PianoHome> {
       if (controller.isLoading) return const _LoadingScreen();
       final colors = Theme.of(context).colorScheme;
       final dark = Theme.of(context).brightness == Brightness.dark;
-      final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+      final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
       final viewport = MediaQuery.sizeOf(context);
       final compactNavigation = viewport.width < 900 || viewport.height < 620;
       return Scaffold(
@@ -469,12 +469,12 @@ class _CompactNavigationBar extends StatelessWidget {
 
   final int page;
   final bool connected;
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
   final ValueChanged<int> onChange;
 
   @override
   Widget build(BuildContext context) {
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     final colors = Theme.of(context).colorScheme;
     final destinations = <(IconData, String)>[
       (Icons.grid_view_rounded, 'Library'),
@@ -600,13 +600,13 @@ class _SideBar extends StatelessWidget {
   });
   final int page;
   final bool connected;
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
   final ValueChanged<int> onChange;
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final dark = Theme.of(context).brightness == Brightness.dark;
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 14, 0, 14),
       child: ClipRRect(
@@ -810,7 +810,7 @@ class _NavIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     final foreground = visuals.isSwiss
         ? (selected ? colors.onPrimary : visuals.swissInk)
         : visuals.isSkeuomorphic
@@ -939,7 +939,7 @@ class _LibraryPage extends StatelessWidget {
     required this.openPlanner,
   });
   final PianoController controller;
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
   final VoidCallback openPlayer;
   final VoidCallback openPlanner;
   @override
@@ -1079,7 +1079,7 @@ class _LibraryPage extends StatelessWidget {
 
 class _HabitDashboard extends StatelessWidget {
   const _HabitDashboard({required this.appState});
-  final PianoraAppState appState;
+  final PianoIshAppState appState;
 
   @override
   Widget build(BuildContext context) {
@@ -1143,7 +1143,7 @@ class _HabitTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     return Container(
       width: math.max(190, width),
       padding: const EdgeInsets.all(16),
@@ -1206,7 +1206,7 @@ class _ContinuePathCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     final current = path;
     final unfinished = current?.steps.where((step) => !step.completed).toList();
     final nextStep = unfinished == null || unfinished.isEmpty
@@ -1341,7 +1341,7 @@ class _FeaturedSong extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     final compact = MediaQuery.sizeOf(context).width < 900;
     final heroColors = visuals.isSwiss
         ? [visuals.swissInk, visuals.swissInk]
@@ -1530,7 +1530,7 @@ class _SongCardState extends State<_SongCard> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final visuals = Theme.of(context).extension<PianoraVisuals>()!;
+    final visuals = Theme.of(context).extension<PianoIshVisuals>()!;
     return MouseRegion(
       onEnter: (_) => setState(() => hovering = true),
       onExit: (_) => setState(() => hovering = false),

@@ -4,22 +4,22 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pianora/app_state.dart';
-import 'package:pianora/design_system.dart';
-import 'package:pianora/main.dart';
-import 'package:pianora/midi_song.dart';
-import 'package:pianora/piano_controller.dart';
+import 'package:piano_ish/app_state.dart';
+import 'package:piano_ish/design_system.dart';
+import 'package:piano_ish/main.dart';
+import 'package:piano_ish/midi_song.dart';
+import 'package:piano_ish/piano_controller.dart';
 
 void main() {
   testWidgets('primary pages do not overflow at phone and tablet sizes', (
     tester,
   ) async {
-    final appState = PianoraAppState()..isLoaded = true;
+    final appState = PianoIshAppState()..isLoaded = true;
     final controller = PianoController()
       ..isLoading = false
       ..selectedSong = _song;
     controller.songs.add(_song);
-    const visuals = PianoraVisuals(
+    const visuals = PianoIshVisuals(
       language: DesignLanguage.minimalSwiss,
       brightness: Brightness.light,
     );

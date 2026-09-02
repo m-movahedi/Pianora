@@ -178,7 +178,7 @@ class ScoreRecord {
   );
 }
 
-class PianoraAppState extends ChangeNotifier {
+class PianoIshAppState extends ChangeNotifier {
   static const accentPresets = <Color>[
     Color(0xFF705CF6),
     Color(0xFF4C7CF3),
@@ -208,7 +208,7 @@ class PianoraAppState extends ChangeNotifier {
   bool isLoaded = false;
 
   Future<File?> _stateFile() async {
-    final directory = await pianoraSupportDirectory();
+    final directory = await pianoIshSupportDirectory();
     if (directory == null) return null;
     return File('${directory.path}${Platform.pathSeparator}app_state.json');
   }

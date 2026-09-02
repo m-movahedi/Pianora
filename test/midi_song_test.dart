@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pianora/midi_song.dart';
-import 'package:pianora/piano_controller.dart';
+import 'package:piano_ish/midi_song.dart';
+import 'package:piano_ish/piano_controller.dart';
 
 import 'synthetic_midi_fixture.dart';
 

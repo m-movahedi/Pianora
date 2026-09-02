@@ -216,7 +216,7 @@ Future<Uint8List> buildSheetMusicPdf(MidiSong song) async {
   final document = pw.Document(
     title: song.title,
     author: song.composer,
-    creator: 'Pianora Piano tranier',
+    creator: 'Piano-ish',
   );
 
   for (var pageIndex = 0; pageIndex < layout.pageCount; pageIndex++) {
@@ -290,7 +290,7 @@ Future<Uri?> exportSheetMusicPdf(MidiSong song) async {
       .replaceAll(RegExp(r'[^A-Za-z0-9 _-]'), '')
       .trim();
   return FilePicker.saveFile(
-    fileName: '${safeTitle.isEmpty ? 'Pianora score' : safeTitle}.pdf',
+    fileName: '${safeTitle.isEmpty ? 'Piano-ish score' : safeTitle}.pdf',
     bytes: await buildSheetMusicPdf(song),
     mimeType: 'application/pdf',
     type: FileType.custom,

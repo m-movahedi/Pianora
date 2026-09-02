@@ -29,7 +29,7 @@ class LowLatencyPiano {
       );
     }
     _source ??= await SoLoud.instance.loadMem(
-      'pianora-c4.wav',
+      'piano-ish-c4.wav',
       _buildPianoWave(),
       mode: LoadMode.memory,
     );

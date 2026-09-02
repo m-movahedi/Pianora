@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Pianora Piano tranier</string>
+	<string>Piano-ish</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Pianora Piano tranier</string>
+	<string>Piano-ish</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -29,9 +29,9 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Pianora uses Bluetooth to connect to MIDI pianos and keyboards.</string>
+	<string>Piano-ish uses Bluetooth to connect to MIDI pianos and keyboards.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Pianora uses Bluetooth to receive notes and pedal input from your MIDI piano.</string>
+	<string>Piano-ish uses Bluetooth to receive notes and pedal input from your MIDI piano.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>UIFileSharingEnabled</key>

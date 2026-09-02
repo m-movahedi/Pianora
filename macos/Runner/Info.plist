@@ -23,7 +23,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Pianora uses Bluetooth to connect to MIDI pianos such as the Roland FP-10.</string>
+	<string>Piano-ish uses Bluetooth to connect to MIDI pianos such as the Roland FP-10.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>$(PRODUCT_COPYRIGHT)</string>
 	<key>NSMainNibFile</key>

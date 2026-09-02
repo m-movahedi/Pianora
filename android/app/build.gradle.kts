@@ -28,7 +28,7 @@ if (releaseBuildRequested) {
 }
 
 android {
-    namespace = "com.mmovahedi.pianora"
+    namespace = "com.mmovahedi.pianoish"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -38,7 +38,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.mmovahedi.pianora"
+        applicationId = "com.mmovahedi.pianoish"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

@@ -7,8 +7,8 @@ $ErrorActionPreference = 'Stop'
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $pubspecPath = Join-Path $projectRoot 'pubspec.yaml'
-$installerScript = Join-Path $projectRoot 'installer\pianora.iss'
-$releaseExe = Join-Path $projectRoot 'build\windows\x64\runner\Release\pianora.exe'
+$installerScript = Join-Path $projectRoot 'installer\piano-ish.iss'
+$releaseExe = Join-Path $projectRoot 'build\windows\x64\runner\Release\Piano-ish.exe'
 
 $versionLine = Select-String -LiteralPath $pubspecPath -Pattern '^version:\s*([^\s]+)\s*$' | Select-Object -First 1
 if (-not $versionLine) {
@@ -56,7 +56,7 @@ try {
     & $iscc "/DMyAppVersion=$fullVersion" "/DMyVersionInfoVersion=$versionInfoVersion" "/DMyPackageVersion=$packageVersion" $installerScript
     if ($LASTEXITCODE -ne 0) { throw 'The installer compilation failed.' }
 
-    $outputPath = Join-Path $projectRoot "installer\output\Pianora-Piano-tranier-Setup-$packageVersion.exe"
+    $outputPath = Join-Path $projectRoot "installer\output\Piano-ish-Setup-$packageVersion.exe"
     if (-not (Test-Path -LiteralPath $outputPath)) {
         throw "The installer compiler completed, but '$outputPath' was not found."
     }

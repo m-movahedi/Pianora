@@ -51,12 +51,12 @@ jobs:
           VERSION="$(awk '/^version:/ {print $2; exit}' pubspec.yaml)"
           PACKAGE_VERSION="${VERSION/+/-build}"
           mkdir -p dist
-          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "dist/Pianora-Piano-tranier-macOS-${PACKAGE_VERSION}.zip"
-          hdiutil create -volname "Pianora Piano tranier Beta" -srcfolder "$APP_PATH" -ov -format UDZO "dist/Pianora-Piano-tranier-macOS-${PACKAGE_VERSION}.dmg"
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "dist/Piano-ish-macOS-${PACKAGE_VERSION}.zip"
+          hdiutil create -volname "Piano-ish Beta" -srcfolder "$APP_PATH" -ov -format UDZO "dist/Piano-ish-macOS-${PACKAGE_VERSION}.dmg"
       - name: Upload macOS beta
         uses: actions/upload-artifact@v4
         with:
-          name: Pianora-Piano-tranier-macOS-beta
+          name: Piano-ish-macOS-beta
           path: dist/*
           if-no-files-found: error
           retention-days: 30
@@ -85,12 +85,12 @@ jobs:
           PACKAGE_VERSION="${VERSION/+/-build}"
           mkdir -p dist/Payload
           cp -R build/ios/iphoneos/Runner.app dist/Payload/
-          (cd dist && zip -qry "Pianora-Piano-tranier-iPhone-iPad-${PACKAGE_VERSION}-unsigned.ipa" Payload)
+          (cd dist && zip -qry "Piano-ish-iPhone-iPad-${PACKAGE_VERSION}-unsigned.ipa" Payload)
           rm -rf dist/Payload
       - name: Upload iPhone and iPad beta candidate
         uses: actions/upload-artifact@v4
         with:
-          name: Pianora-Piano-tranier-iPhone-iPad-beta-unsigned
+          name: Piano-ish-iPhone-iPad-beta-unsigned
           path: dist/*.ipa
           if-no-files-found: error
           retention-days: 30

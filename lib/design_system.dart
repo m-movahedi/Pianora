@@ -25,8 +25,8 @@ Color readableForegroundFor(Iterable<Color> backgrounds) {
       : const Color(0xFF111111);
 }
 
-class PianoraVisuals extends ThemeExtension<PianoraVisuals> {
-  const PianoraVisuals({required this.language, required this.brightness});
+class PianoIshVisuals extends ThemeExtension<PianoIshVisuals> {
+  const PianoIshVisuals({required this.language, required this.brightness});
 
   final DesignLanguage language;
   final Brightness brightness;
@@ -50,14 +50,14 @@ class PianoraVisuals extends ThemeExtension<PianoraVisuals> {
       isDark ? const Color(0xFFF5F4EF) : const Color(0xFF111111);
 
   @override
-  PianoraVisuals copyWith({DesignLanguage? language, Brightness? brightness}) =>
-      PianoraVisuals(
+  PianoIshVisuals copyWith({DesignLanguage? language, Brightness? brightness}) =>
+      PianoIshVisuals(
         language: language ?? this.language,
         brightness: brightness ?? this.brightness,
       );
 
   @override
-  PianoraVisuals lerp(covariant PianoraVisuals? other, double t) {
+  PianoIshVisuals lerp(covariant PianoIshVisuals? other, double t) {
     if (other == null || t < .5) return this;
     return other;
   }

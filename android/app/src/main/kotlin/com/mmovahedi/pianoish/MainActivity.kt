@@ -1,4 +1,4 @@
-package com.mmovahedi.pianora
+package com.mmovahedi.pianoish
 
 import io.flutter.embedding.android.FlutterActivity
 

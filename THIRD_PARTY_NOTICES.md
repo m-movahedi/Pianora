@@ -1,9 +1,9 @@
 # Third-party notices
 
-Pianora is built with Flutter and open-source Dart packages. The application's
+Piano-ish is built with Flutter and open-source Dart packages. The application's
 **Settings > Legal & licenses > Open-source licenses** screen contains the
 license text supplied by Flutter, every linked package, the Bravura music font,
-and the native audio components registered by Pianora.
+and the native audio components registered by Piano-ish.
 
 Important embedded components include:
 
@@ -34,5 +34,5 @@ Cover images are retrieved through the
 [Cover Art Archive](https://coverartarchive.org/). Each image retains its own
 copyright and license; inclusion in the archive does not make it public domain.
 
-Pianora does not include third-party song or MIDI content. Users are responsible
+Piano-ish does not include third-party song or MIDI content. Users are responsible
 for ensuring they have permission to use and export files and artwork they add.

@@ -5,9 +5,9 @@ import 'package:crisp_notation/crisp_notation.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pianora/midi_song.dart';
-import 'package:pianora/sheet_music.dart';
-import 'package:pianora/song_metadata_service.dart';
+import 'package:piano_ish/midi_song.dart';
+import 'package:piano_ish/sheet_music.dart';
+import 'package:piano_ish/song_metadata_service.dart';
 
 import 'synthetic_midi_fixture.dart';
 
@@ -66,7 +66,7 @@ void main() {
     final client = MockClient((request) async {
       expect(request.url.host, 'musicbrainz.org');
       expect(request.url.queryParameters['fmt'], 'json');
-      expect(request.headers['user-agent'], contains('Pianora/1.1.0'));
+      expect(request.headers['user-agent'], contains('Piano-ish/1.1.0'));
       return http.Response(
         jsonEncode({
           'recordings': [
